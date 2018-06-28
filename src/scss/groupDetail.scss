@@ -1,0 +1,196 @@
+@import 'mixin.scss';
+
+[data-page~=group-detail] {
+    //成功或失败
+    .success-of-fail{
+        width: 102px;
+        height: 83px;
+        position: absolute;
+        top: 18px;
+        right: 16px;
+    }
+    //商品信息
+    .goods-msg{
+        width: 100%;
+        height: 120px;
+        padding-top: 20px;
+        position: relative;
+        .goods-img{
+            width: 80px;
+            height: 80px;
+            overflow: hidden;
+            position: absolute;
+            top: 20px;
+            left: 14px;
+            img{
+                width: 80px;
+            }
+        }
+        .goods-detail{
+            width: 100%;
+            padding-left: 110px;
+            .goods-title{
+                @include multiLine(3);
+            }
+        }
+    }
+    //参团信息
+    .color-grey{
+        background: #aaa!important;
+    }
+    .group-msg{
+        width: 100%;
+        min-height: 160px;
+        padding-bottom: 14px;
+        .group-img{
+            width: 100%;
+            min-height: 50px;
+            padding-bottom: 10px;
+        }
+    }
+    //头像
+    .head-portrait{
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        margin: 0 12px 10px;
+        position: relative;
+        .portrait{
+            width: 50px;
+            height: 50px;
+            border-radius: 25px;
+            overflow: hidden;
+        }
+        img{
+            width: 50px;
+        }
+        span{
+            position: absolute;
+            top: 0;
+            right: -9px;
+            width: 30px;
+            height: 14px;
+            border-radius: 7px;
+        }
+    }
+    //倒计时
+    .remaining-time{
+        width: 100%;
+        height: 56px;
+        position: relative;
+        .timer{
+            width: 120px;
+            height: 30px;
+            border-radius: 26px;
+            line-height: 32px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            margin-left: -60px;
+        }
+    }
+    //查看详情
+    .open-detail{
+        width: 100%;
+        @include flexBox;
+        @include flexHori;
+        .open-txt{
+            padding: 0 20px;
+            background-image: url(../img/evaluate/down.png);
+            background-repeat: no-repeat;
+            background-position: 120px 2px;
+            background-size: 14px 14px;
+        }
+        .open-txt-bg{
+            background-image: url(../img/evaluate/up.png);
+        }
+    }
+    //参团用户详情
+    .users-detail{
+        width: 100%;
+        padding: 10px 0 10px 12px;
+        ul{
+            width: 100%;
+            padding: 10px 0 10px 14px;
+            border-left: 1px solid #e4e4e4;
+            li{
+                height: 46px;
+                width: 98%;
+                border-radius: 4px;
+                padding: 0 6px 0 44px;
+                position: relative;
+                .horn{
+                    width: 8px;
+                    height: 8px;
+                    position: absolute;
+                    left: -4px;
+                    top: 20px;
+                    display: block;
+                    @include transform45;
+                }
+                .circle{
+                    width: 11px;
+                    height: 11px;
+                    border-radius: 8px;
+                    position: absolute;
+                    left: -20px;
+                    top: 19px;
+                    border: 3px solid #fff;
+                }
+            }
+        }
+        .portrait{
+            width: 30px;
+            height: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            img{
+                width: 30px;
+            }
+        }
+    }
+    .group-purchase-btn {
+        z-index: 1;
+        height: 50px;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        .more-pintuan {
+            width:33%;
+            background: #f99;
+            .list-icon {
+                display: inline-block;
+                width: 18px;
+                height: 12px;
+                margin-right: 5px;
+                vertical-align: middle;
+                margin-top: -3px;
+                overflow: hidden;
+                line-height: 1px;
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+        .jump-group-btn {
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            flex: 1;
+            background: #f44;
+        }
+        a {
+            display: block;
+            color: #fff;
+            font-size: 15px;
+            line-height: 50px;
+            text-align: center;
+        }
+    }
+}

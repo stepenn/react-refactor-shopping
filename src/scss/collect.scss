@@ -1,0 +1,274 @@
+@import "./mixin.scss";
+[data-page~="collect-page"]{
+  .col-xs-6{
+    width:50%;
+  }
+  a{
+    font: 12px/1.5 "helvetica";
+    font-size:.9rem;
+  }
+  p{
+    color:#333;
+  }
+  &.main{
+    width:100%;
+    height:100%;
+    margin-top: 0;
+    padding-bottom: rem(101.25);
+    max-width: 9999px;
+    overflow:hidden;
+    .collect-control{
+      padding: 0 .1rem;
+      margin-bottom: .13333rem;
+      float: left;
+      border: none;
+      box-sizing: border-box;
+      background: transparent;
+      width:100%;
+      padding-bottom:5px;
+    }
+    .collect-box{
+      float:left;
+      width:50%;
+      padding:0 0.1rem;
+    }
+    .clearfix{
+      &:after{
+        content: '';
+        display: block;
+        height:0;
+        clear: both;
+      }
+    }
+    .area{
+      padding: 0 0.266666rem;
+      .floor-bd{
+        margin:0;
+        padding:0;
+        border: none;
+        text-align: left;
+        overflow: hidden;
+        .single{
+          @extend .collect-control;
+          width:100%;
+          .pro-pic{
+            border: 1px solid #e4e4e4;
+            border-bottom: none;
+            position: relative;
+            background: #fff;
+            overflow: hidden;
+            a{
+              top: 0;
+              right: 0;
+              bottom: 0;
+              left: 0;
+              img{
+                display: block;
+                width: 100%;
+                height: 4.48rem;
+                overflow: hidden;
+                background-size: contain !important;
+              }
+            }
+          }
+          .list-item-pic{
+            height:auto;
+            a{
+              display: block;
+              width: 96%;
+              margin: 2% auto;
+              position: static;
+              border:0;
+            }
+          }
+          .pro-info{
+            padding: 0.1rem;
+            border: 1px solid #e4e4e4;
+            overflow: hidden;
+            line-height: 1.5;
+            background: #fff;
+
+            .info-g{
+              padding-top:5px;
+              height:26px;
+              span{
+                border:1px solid #E82547;
+                padding:3px;
+                color:#E82547;
+                margin:0 3px;
+              }
+            }
+            .info-n{
+              margin: 0.3rem 0 0.2rem;
+              height: 1rem;
+              overflow: hidden;
+              text-align: left;
+              a{
+                display: block;
+                color: #353535;
+                line-height: .5rem;
+                font-size: .32rem;
+                p{
+                  padding: 0;
+                  margin: 0;
+                  font-size: 1em;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                }
+              }
+            }
+            .info-p{
+              width:100%;
+              overflow: hidden;
+              line-height: .5rem;
+              height: .5rem;
+              font-size: 0.32rem;
+              position: relative;
+              padding-left:2%;
+              .p-lf{
+                color: #ff5555;
+                float:left;
+              }
+            }
+          }
+          .un-padding{
+            padding:0;
+          }
+          .cur{
+            border: 1px solid #ff5555;
+          }
+          .sor{
+            border: 1px solid #e4e4e4;
+          }
+        }
+        .un-padding{
+          padding:0;
+        }
+      }
+    }
+    .showarea{
+      margin-top:10px;
+    }
+    .ui-btn{
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+      left:0;
+      border-right: none;
+      border-left: none;
+      font-size: 14px;
+      height: 1.2rem;
+      padding: 0;
+      z-index:99;
+    }
+    .edit{
+      @extend .ui-btn;
+    }
+    .delete-action{
+      @extend .edit;
+    }
+    .edit-btn{
+      color: #333;
+      border-radius: 3px;
+      text-align: center;
+      background-color: #fff;
+      border: 1px solid #E4E4E4;
+      transition: 1s all;
+      font-size:0.4rem;
+    }
+    input[type="button"]{
+      @extend .edit-btn;
+    }
+    .ui-btn-warning{
+      @extend .ui-btn;
+      border: 1px solid #ff5555;
+      background: #FF4E8E;
+      background: linear-gradient(to right,#FF4E8E 30%,#FF6352);
+      color:#fff;
+      font-size:0.4rem;
+    }
+    .ui-btn-empty{
+      position:relative;
+    }
+    .empty-area{
+      color: #D5D5D5;
+      text-align: center;
+      img{
+        width: 70px;
+        height: 60px;
+      }
+      span{
+        display: block;
+        margin-bottom: 3em;
+        font-size:14px;
+        margin-top:.5em;
+      }
+      .empty-txt{
+        color:#c9c9c9;
+      }
+      a{
+        padding: 0;
+        height: 2.6em;
+        width: 10em;
+        line-height: 2.6em;
+        border-radius: 1.3em;
+        border: 1px solid #ff5555;
+        background: -webkit-linear-gradient(left,#FF4E8E 30%,#FF6352);
+        font-size: 14px;
+        display:inline-block;
+        color:#fff;
+      }
+    }
+    .empty-mask{
+      @extend .ui-btn;
+      z-index:98;
+      background: #fff;
+      left:0;
+    }
+  }
+}
+/*精选页面的样式*/
+[data-page~="selected-page"]{
+  &.main{
+     padding-bottom:0;
+    .selected_title {
+      height: 42px;
+      line-height: 42px;
+      color: #353535;
+      font-size: 16px;
+      padding-left:0.1rem;
+    }
+    .select_subtitle {
+      color: #999;
+      font-size: 14px;
+      padding-bottom: 8px;
+      padding-left:0.1rem;
+    }
+    .col-select{
+      float:left;
+      width:50%!important;
+      height:6.38rem;
+      .info-n{
+        @include multiLine(2);
+        padding-left:2%;
+      }
+    }
+    .empty-bg{
+      padding-top: 100px;
+      text-align: center;
+      background: url("/src/img/shopCart/item-noexist-icon.png") center top / 125px 100px no-repeat transparent;
+    }
+    .empty-select{
+      color:#c9c9c9;
+      font-size:13px;
+      line-height:30px;
+    }
+  }
+
+}
+/*下拉加载*/
+[data-comp~=drop-down-load] .dropload-down{
+  width:100%;
+  font-size: 0.35rem;
+}

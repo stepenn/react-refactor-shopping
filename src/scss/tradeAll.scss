@@ -1,0 +1,534 @@
+@import "mixin.scss";
+/*
+*订单列表页
+*/
+[data-page~=trade-list]{
+	//导航栏
+	.trade-list-nav{
+		background:#fff;
+		position:fixed;
+		top:0;
+		width:100%;
+		z-index:10;
+		min-width:320px;
+		@include flexBox;
+		height:40px;
+		border-bottom:1px solid #e4e4e4;
+		line-height:38px;
+		.nav-list{
+			display:block;
+			@include flex(1);
+			text-align:center;
+			span{
+				display:inline-block;
+				height:100%;
+			}
+			&.active span{
+				border-bottom:2px solid #0086d1;
+				color:#0086d1;
+			}
+		}
+	}
+	//订单列表
+	.trade-list{
+		background:#f4f4f4;
+		padding-top:40px;
+		.list-data li{
+			width:100%;
+			background:#fff;
+			margin-bottom:10px;
+			.list-top{
+				line-height:20px;
+				border-bottom:1px solid #f4f4f4;
+				padding:15px 4%;
+				overflow:hidden;
+				.order-num{
+					float:left;
+					font-size:14px;
+					color:#353535;
+				}
+				.order-time{
+					float:right;
+					font-size:12px;
+					color:#c9c9c9;
+				}
+			}
+		}
+		.one-order{
+			.list-body{
+				padding:10px 4%;
+				height:105px;
+				@include flexBox;
+				.list-img{
+					width:85px;
+					height:85px;
+					margin-right:5px;
+					& > a ,& > a img{
+						display:block;
+						width:100%;
+						height:100%;
+					}
+				}
+				.list-body-ctt{
+					@include flex(1);
+					position:relative;
+					height:85px;
+					.order-info-detail{
+						overflow:hidden;
+						line-height:16px;
+						@include flexBox;
+						.order-info-top{
+							@include flex(1);
+						}
+						.order-status-wrap{
+							background:#fff;
+							text-align:right;
+							width:60px;
+							color:#ff5555;
+							line-height:16px;
+							.cancel-status{
+								color:#0086d1;
+							}
+						}
+					}
+					.order-total{
+						position:absolute;
+						right:0;
+						bottom:0;
+					}
+				}
+			}
+			.order-info-top {
+				.order-info-title{
+					height:32px;
+					display:block;
+					color:#353535;
+					font-size:12px;
+					@include multiLine(2);
+				}
+				.order-info-type{
+					height:16px;
+					color:#c9c9c9;
+					@include multiLine(1);
+				}
+			}
+		}
+		.multi-order{
+			.list-body{
+				padding:10px 4%;
+				.body-top{
+					height:20px;
+					line-height:20px;
+				}
+				.body-middle{
+					padding:10px 0;
+					height:95px;
+					img{
+						width:75px;
+						height:75px;
+						margin-right:10px;
+					}
+				}
+				.body-btm{
+					line-height:20px;
+				}
+			}
+		}
+		.order-ctrl{
+			border-top:1px solid #e4e4e4;
+			padding:8px 4%;
+			&>a{
+				display:inline-block;
+				margin-left:10px;
+				text-align:center;
+				min-width:80px;
+				font-size:12px;
+				line-height:26px;
+				padding:0 15px;
+				border-radius:13px;
+				&.ctrl-block{
+					border:1px solid #e4e4e4;
+					color:#353535;
+				}
+				&.ctrl-red{
+					border:1px solid #f55;
+					color:#f55;
+				}
+			}
+		}
+	}
+}
+
+/*
+*订单详情页
+*/
+[data-page~=trade-detail]{
+	@include customIcon(face-happy,"face/face-happy",25px,25px);
+	@include customIcon(face-strive,"face/face-strive",30px,25px);
+	@include customIcon(face-unhappy,"face/face-unhappy",25px,25px);
+	@include customIcon(blue-car,"blue-car",20px,20px);
+	@include customIcon(arrow-right,"arrow/arrow-right",10px,15px);
+	@include customIcon( location-address,"location-address",20px,25px);
+	@include customIcon(identify-card,identify-card,21px,17px);
+	@include customIcon(server-line,server-line,16px,16px);
+	background:#f4f4f4;
+	#tradeDetail{  padding-bottom:55px;}
+	//头部拼团状态
+	.fight-group-status{
+		height:50px;
+		line-height:50px;
+		i{
+			vertical-align:middle;
+			margin-right:8px;
+		}
+		.group-success{
+			background:#ff4444;
+		}
+		.group-strive{
+			background:#f99;
+		}
+		.group-fail{
+			background:#999;
+		}
+	}
+	//订单号和状态
+	.status-info{
+		background:#fff;
+		height:50px;
+		line-height:50px;
+		font-size:14px;
+		padding:0 4%;
+		span{
+			color:#353535;
+			float:left;
+		}
+		i{
+			color:#f55;
+			float:right;
+		}
+	}
+	//物流信息
+	.logistics-info{
+		margin-top:10px;
+		height:50px;
+		line-height:50px;
+		background:#fff;
+		padding:0 4%;
+		border-bottom:1px solid #f4f4f4;
+		@include flexBox;
+		.loading-img{
+			padding-left:rem(40);
+			@include flex(1);
+		}
+		.logistics-none{
+			@include flex(1);
+			padding:5px;
+			color:#27a1e5;
+			line-height:40px;
+			font-size:16px;
+		}
+		.logistics-status{
+			padding:5px;
+			overflow:hidden;
+			@include flex(1);
+			.logistics-addr{
+				color:#27a1e5;
+				font-size:14px;
+				@include  hOfHd(24px);
+				white-space: nowrap;
+				text-overflow:ellipsis;
+			}
+			.logistics-time{
+				color:#808080;
+				font-size:10px;
+				@include hOfHd(16px);
+			}
+		}
+		.blue-car-icon,.arrow-right-icon{
+			vertical-align:middle;
+		}
+	}
+	//收货人信息
+	.address-info-grid{
+		background:#fff;
+		padding:15px 4% 10px;
+		margin-bottom:10px;
+	}
+	.address-info{
+		.receive-person{
+			padding-left:25px;
+			@include hOfHd(20px);
+			.right{
+				width:100px;
+				text-align:right;
+			}
+		}
+		.receive-addr{
+			padding:5px 0;
+			@include flexVtc();
+			.left{
+				width:25px;
+				i{ vertical-align:1px;}
+			}
+			.right{
+				@include multiLine(2);
+				word-break: break-all;
+			}
+		}
+		.receive-id-grid{
+			padding:0 4%;
+		}
+		.receiver-id{
+			@include hOfHd(22px);
+			.left{
+				width:25px;
+				i{ margin-top:2px;}
+			}
+		}
+	}
+
+	//商品列表
+	.order-detail-mid{
+		padding:15px 4%;
+		margin-bottom:10px;
+		background:#fff;
+		.item-list{  }
+		.one-item{
+			background:#f4f4f4;
+			padding:3px;
+			.item-detail{
+				padding:0 10px;
+				.item-title{
+					display:block;
+					@include hOfHd(36px);
+					line-height:18px;
+					@include multiLine(2);
+				}
+				.item-props{
+					@include multiLine(1);
+					color:#808080;
+					@include hOfHd(18px);
+				}
+				.item-price{
+					line-height:16px;
+				}
+			}
+		}
+		.one-item-ctrl{
+			text-align:right;
+			.btn{
+				display:inline-block;
+				border:1px solid #e4e4e4;
+				background:#fff;
+				height:26px;
+				line-height:24px;
+				border-radius:13px;
+				padding:0 15px;
+				margin-left:rem(20);
+				margin-bottom:5px;
+			}
+		}
+		.link-server-grid{
+			padding:0 7%;
+			.link-server{
+				display:block;
+				width:100%;
+				border:1px solid #e4e4e4;
+				height:32px;
+				border-radius:16px;
+				text-align:center;
+				line-height:30px;
+				i{
+					vertical-align:-3px;
+					margin-right:5px;
+				}
+			}
+		}
+	}
+	//订单信息
+	.order-list{
+		background:#fff;
+		.list{
+			@include flexBox();
+			padding:0 4%;
+			font-size:14px;
+			.left{
+				width:80px;
+				color:#808080;
+				text-align:left;
+			}
+			.right{
+				@include flex(1);
+				@include multiLine(1);
+				text-align:right;
+			}
+		}
+	}
+	.user-info{
+		margin-bottom:10px;
+		.list{
+			@include hOfHd(42px);
+			&:not(:last-child){ border-bottom:1px solid #f4f4f4; }
+		}
+	}
+	.total-list{
+		padding:10px 0;
+		line-height:28px;
+		border-bottom:1px solid #f4f4f4;
+		.right{  color:#f55;  }
+	}
+	.total-price{
+		padding:10px 4%;
+		text-align:right;
+		.price{
+			font-size:14px;
+			line-height:26px;
+			span{
+				font-size:17px;
+			}
+		}
+		.time{
+			color:#808080;
+			line-height:18px;
+			font-size:10px;
+		}
+	}
+	//订单控制
+	.order-ctrl{
+		border-top:1px solid #e4e4e4;
+		padding:8px 4%;
+		background:#fff;
+		position:fixed;
+		bottom:0;
+		width:100%;
+		&>a{
+			display:inline-block;
+			margin-left:10px;
+			text-align:center;
+			min-width:80px;
+			font-size:12px;
+			line-height:26px;
+			padding:0 15px;
+			border-radius:13px;
+			&.ctrl-block{
+				border:1px solid #e4e4e4;
+				color:#353535;
+			}
+			&.ctrl-red{
+				border:1px solid #f55;
+				color:#f55;
+			}
+		}
+	}
+}
+
+
+/*
+* 订单取消页
+*/
+[data-page~=order-cancel]{
+	background:#f4f4f4;
+	padding-bottom:60px;
+	@include customIcon(current-no-agree,"agree/current-no-agree",16px,16px );
+	@include customIcon(current-black,"agree/current-black",16px,16px );
+	.cancel-top{
+		background:#fff;
+		font-size:14px;
+		margin-bottom:10px;
+		.left{
+			color:#808080;
+		}
+		.right{
+			color:#f55;
+			text-align:right;
+		}
+		.list-top{
+			padding:0 4%;
+			@include hOfHd(50px);
+			border-bottom:1px solid #e4e4e4;
+			.left{ color:#353535; }
+			.right{  width:rem(200);  }
+		}
+		.list-mid{
+			padding:10px 4%;
+			.li{
+				@include hOfHd(25px);
+				.left{  width:rem(300);  }
+			}
+
+		}
+	}
+	.reason-choose{
+		background:#fff;
+		.reason-list{
+			.list{
+				height:41px;
+				line-height:40px;
+				padding:0 4%;
+				&:not(:last-child){
+					border-bottom:1px solid #e4e4e4;
+				}
+				.choose{
+					float:left;
+					width:16px;
+					margin-right:14px;
+					i{
+						vertical-align:-3px;
+					}
+				}
+				.text{
+					float:left;
+				}
+			}
+		}
+		.reason-text{
+			padding:1px 4% 10px;
+			textarea{
+				width:100%;
+				font-size:13px;
+				line-height:18px;
+				height:80px;
+				resize: none;
+			}
+		}
+	}
+	.btm-btn{
+		position:fixed;
+		bottom:0;
+		left:0;
+		height:50px;
+		width:100%;
+		text-align:center;
+		line-height:50px;
+		color:#fff;
+		font-size:14px;
+		z-index:90;
+	}
+	.colour-btn{
+		background:linear-gradient(to right,#ff4d90,#ff6352);
+	}
+}
+
+
+/*拼团列表*/
+[data-page~=my-group-list]{
+  .list-container{
+	width:100%;
+	transition:top .2s ease-in;
+	&.active{
+	  top:-89px;
+	  transition:top .2s ease-in;
+	}
+  }
+  .order-info{
+	position:relative;
+  }
+  .trade-list{
+	  .order-alt{
+		width:100%;
+		position: absolute;
+		bottom:0;
+		left:0;
+	  }
+  }
+}
